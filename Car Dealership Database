@@ -1,0 +1,20 @@
+CREATE TABLE store_database (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, brand TEXT, price INTEGER);
+
+INSERT INTO store_database VALUES (1, "Corolla", 4, "Toyota", 25000);
+INSERT INTO store_database VALUES (2, "Camry", 5, "Toyota", 26000);
+INSERT INTO store_database VALUES (3, "Prius", 3, "Toyota", 23000);
+INSERT INTO store_database VALUES (4, "Avalon", 7, "Toyota", 28000);
+INSERT INTO store_database VALUES (5, "Accord", 6, "Honda", 22000);
+INSERT INTO store_database VALUES (6, "Hatchback", 5, "Honda", 26500);
+INSERT INTO store_database VALUES (7, "Civic", 8, "Honda", 21500);
+INSERT INTO store_database VALUES (8, "Malibu", 5, "Chevy", 24500);
+INSERT INTO store_database VALUES (9, "Camaro", 3, "Chevy", 29000);
+INSERT INTO store_database VALUES (10, "Blazer", 2, "Chevy", 38000);
+INSERT INTO store_database VALUES (11, "Fiesta", 5, "Ford", 31000);
+INSERT INTO store_database VALUES (12, "Focus", 7, "Ford", 23000);
+INSERT INTO store_database VALUES (13, "Escort", 4, "Ford", 33000);
+INSERT INTO store_database VALUES (14, "Mustang", 6, "Ford", 28000);
+INSERT INTO store_database VALUES (15, "Soul", 3, "Kia", 25500);
+
+SELECT name, brand, price FROM store_database ORDER BY price;
+SELECT brand, SUM(quantity) FROM store_database GROUP BY brand;
