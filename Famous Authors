@@ -1,0 +1,43 @@
+/* Create table about the people and what they do here */
+CREATE TABLE authors(id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     fullname TEXT, country TEXT);
+INSERT INTO authors (fullname, country) VALUES ("J.K. Rowling", "Britain");
+INSERT INTO authors (fullname, country) VALUES ("Harper Lee", "United States");
+INSERT INTO authors (fullname, country) VALUES ("J.R.R. Tolkein", "South Africa");
+INSERT INTO authors (fullname, country) VALUES ("J.D. Salinger", "United States");
+INSERT INTO authors (fullname, country) VALUES ("George R.R. Martin", "United States");
+INSERT INTO authors (fullname, country) VALUES ("Andrzej Sapkowski", "Poland");
+INSERT INTO authors (fullname, country) VALUES ("Rick Riordan", "United States");
+INSERT INTO authors (fullname, country) VALUES ("Ray Bradury", "United States");
+INSERT INTO authors (fullname, country) VALUES ("Stephenie Meyer", "United States");
+INSERT INTO authors (fullname, country) VALUES ("Suzanne Collins", "United States");
+
+
+CREATE TABLE books (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, title TEXT, series TEXT, show_movie TEXT);
+
+INSERT INTO books (person_id, title, series, show_movie) VALUES (1, "Harry Potter", "Yes", "Movie");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (2, "To Kill A Mockingbird", "No", "Movie");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (3, "Lord of the Rings", "Yes", "Both");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (4, "Catcher in the Rye", "No", "None");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (5, "Game of Thrones", "Yes", "Show");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (6, "The Witcher", "Yes", "Show");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (7, "Percy Jackson", "Yes", "Both");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (8, "Fahrenheit 451", "No", "Movie");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (9, "Twilight", "Yes", "Movie");
+INSERT INTO books (person_id, title, series, show_movie) VALUES (10, "The Hunger Games", "Yes", "Movie");
+
+SELECT authors.fullname, books.title
+FROM authors
+JOIN books
+ON authors.id = books.person_id;
+
+SELECT authors.fullname, books.title, books.series, books.show_movie
+FROM authors
+JOIN books
+ON authors.id = books.person_id;
+
+SELECT authors.fullname, books.title, books.show_movie 
+FROM authors
+JOIN books
+On authors.id= books.person_id
+WHERE books.show_movie = "Movie"
